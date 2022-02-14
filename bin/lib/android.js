@@ -4,7 +4,7 @@ var mappings = require("./mappings"),
 module.exports = function (context) {
 
 	var
-		req = require,
+		req =  require,
 		Q = req('q'),
 		path = req('path'),
 		ET = req('elementtree'),
