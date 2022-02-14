@@ -8,10 +8,10 @@ module.exports = function (context) {
 		Q = req('q'),
 		path = req('path'),
 		ET = req('elementtree'),
-		cordova = req('cordova'),
-		cordova_lib = cordova.cordova_lib,
+		// cordova = require('cordova'),
+		cordova_lib = context.requireCordovaModule('cordova-lib/'),
 		ConfigParser = cordova_lib.configparser,
-		cordova_util = req('cordova-lib/src/cordova/util'),
+		cordova_util = context.requireCordovaModule('cordova-lib/src/cordova/util'),
 		ofs = req("fs"),
 		fs = require("./filesystem")(Q, req('fs'), path),
 		platforms = {};
@@ -29,7 +29,8 @@ module.exports = function (context) {
 							return path.join('platforms','android','app','src','main','res');
 						}
 					}
-					return path.join('platforms','android','res');
+					// return path.join('platforms','android','res');
+					return path.join('platforms','android','app','src','main','res');
 				});
 	}
 
@@ -44,7 +45,8 @@ module.exports = function (context) {
 							return path.join('platforms','android','app','src','main','java');
 						}
 					}
-					return path.join('platforms','android','src');
+					// return path.join('platforms','android','src');
+					return path.join('platforms','android','app','src','main','java');
 				});
 	}
 
